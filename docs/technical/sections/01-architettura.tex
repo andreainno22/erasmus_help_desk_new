@@ -1,0 +1,27 @@
+\chapter{Architettura}
+
+\section{Panoramica}
+Il sistema è composto da:
+\begin{itemize}
+  \item Backend Python (FastAPI) con moduli in \texttt{app/}
+  \item Servizi applicativi (RAG, PDF, Vector DB) in \texttt{app/services/}
+  \item Persistenza SQLite gestita da \texttt{app/core/database.py}
+  \item Frontend statico in \texttt{frontend/}
+\end{itemize}
+
+\section{Flussi principali}
+\subsection{Step 1: Bando}
+Recupera bando attivo dall'archivio documenti, opzionale retrieval su vector store e riassunto con LLM.
+
+\subsection{Step 2: Destinazioni}
+\begin{enumerate}
+  \item Estrazione testo da PDF ``destinazioni'' (tabelle + testo)
+  \item Isolamento sezione di dipartimento
+  \item Prompt a LLM per estrarre un array JSON di destinazioni
+\end{enumerate}
+
+\subsection{Step 3: Esami}
+\begin{enumerate}
+  \item Ricerca PDF corsi Erasmus (\texttt{document\_type = corsi\_erasmus})
+  \item Estrazione testo e prompting per matching con piano di studi
+\end{enumerate}

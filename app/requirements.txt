@@ -1,0 +1,32 @@
+# Web Framework
+fastapi
+uvicorn[standard]
+
+# Google Generative AI
+google-generativeai
+
+# RAG & Document Processing
+langchain
+langchain-google-genai
+pypdf
+pdfplumber
+beautifulsoup4
+
+# Vector Database & Embeddings
+chromadb
+langchain-community
+sentence-transformers # Ottima libreria per embedding open-source
+
+# Configuration
+python-dotenv
+
+# Markdown rendering
+markdown
+
+# PyMuPDF
+PyMuPDF
+
+# Authentication & Security
+python-jose[cryptography]
+bcrypt
+python-multipart  # Per upload file con FastAPI

@@ -1,0 +1,16 @@
+\chapter{Servizi applicativi}
+
+\section{File \texttt{app/services/rag\_service.py}}
+Funzioni principali:
+\begin{itemize}
+  \item \textbf{clean\_and\_parse\_json\_response}: parsing robusto dell'output LLM
+  \item \textbf{markdown\_to\_html}: rendering Markdown per frontend
+  \item \textbf{extract\_department\_section}: isolamento sezione dipartimento
+  \item \textbf{get\_call\_summary}: riassunto bando
+  \item \textbf{get\_available\_departments}: elenco dipartimenti
+  \item \textbf{analyze\_destinations\_for\_department}: estrazione destinazioni dal PDF
+  \item \textbf{analyze\_exams\_compatibility}: matching esami
+\end{itemize}
+
+\section{Gestione errori}
+Propagazione eccezioni specifiche e log diagnostici (lunghezze testo, header trovati, parsing JSON).

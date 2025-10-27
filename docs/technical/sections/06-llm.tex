@@ -1,0 +1,18 @@
+\chapter{Integrazione LLM}
+
+\section{Google Generative AI}
+\begin{itemize}
+  \item Configurazione: \texttt{genai.configure(api\_key=GOOGLE\_API\_KEY)}
+  \item Modello: \texttt{gemini-2.0-flash}
+  \item Uso asincrono: \texttt{generate\_content\_async(template)}
+\end{itemize}
+
+\section{Prompt}
+\subsection{Step 2}
+Vincolo: restituzione esclusiva di array JSON con campi fedeli al PDF.
+
+\subsection{Step 3}
+Oggetto JSON con: corrispondenze, suggerimenti, punteggio compatibilità, note su periodo.
+
+\section{Parsing output}
+\texttt{clean\_and\_parse\_json\_response}: rimozione code fences, parsing diretto e fallback regex.

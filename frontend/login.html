@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="it">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Login Università - Erasmus Help Desk</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+    <header class="app-header">
+        <div class="header-left">
+            <div class="logo"></div>
+            <div>
+                <div class="title">Erasmus Help Desk</div>
+                <div class="subtitle">Area Università</div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="card" style="max-width: 400px; margin: 40px auto;">
+            <div class="card-title">Login Università</div>
+            <form id="login-form" class="space-y">
+                <div class="space-y-xxs">
+                    <label for="email" class="label">Email</label>
+                    <input type="email" id="email" class="input" required>
+                </div>
+                <div class="space-y-xxs">
+                    <label for="password" class="label">Password</label>
+                    <input type="password" id="password" class="input" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-full">Login</button>
+            </form>
+            <div id="error-box" class="error" hidden></div>
+            <p class="text-center" style="margin-top: 16px;">
+                Non hai un account? <a href="/static/register.html">Registrati</a>
+            </p>
+        </div>
+    </main>
+
+    <script defer src="/static/university.js"></script>
+</body>
+</html>

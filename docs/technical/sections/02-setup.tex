@@ -1,0 +1,25 @@
+\chapter{Setup e Configurazione}
+
+\section{Prerequisiti}
+\begin{itemize}
+  \item Python 3.10+
+  \item Virtualenv/Conda
+  \item Latexmk (MiKTeX/TeX Live) per compilare la documentazione
+\end{itemize}
+
+\section{Variabili d'ambiente}
+\begin{itemize}
+  \item \texttt{GOOGLE\_API\_KEY}: chiave API Google Generative AI
+\end{itemize}
+
+\section{Dipendenze principali}
+\begin{itemize}
+  \item \texttt{fastapi}, \texttt{uvicorn}
+  \item \texttt{google-generativeai}
+  \item \texttt{pdfplumber}, \texttt{pymupdf}
+\end{itemize}
+
+\section{Avvio in sviluppo}
+\begin{verbatim}
+uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+\end{verbatim}

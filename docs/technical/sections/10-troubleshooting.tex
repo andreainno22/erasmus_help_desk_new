@@ -1,0 +1,18 @@
+\chapter{Troubleshooting}
+
+\section{Step 2: Dipartimento non trovato}
+\begin{itemize}
+  \item Verificare testo estratto e presenza header ``Dipartimento''
+  \item Usare estrazione più tollerante per header e normalizzazione input
+\end{itemize}
+
+\section{Step 3: Nessun file esami trovato}
+\begin{itemize}
+  \item Verificare che il documento esista con \texttt{document\_type='corsi\_erasmus'}
+  \item Controllare coerenza tra \texttt{destination\_university\_name} e \texttt{universities.university\_name}
+\end{itemize}
+
+\section{Porta 8000 occupata}
+\begin{itemize}
+  \item Kill processi come indicato in Deployment
+\end{itemize}

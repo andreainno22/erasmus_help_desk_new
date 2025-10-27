@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="it">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dashboard Università - Erasmus Help Desk</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+    <header class="app-header">
+        <div class="header-left">
+            <div class="logo"></div>
+            <div>
+                <div class="title">Erasmus Help Desk</div>
+                <div class="subtitle">Dashboard Università</div>
+            </div>
+        </div>
+        <div class="header-right">
+            <button id="logout_btn" class="btn">Logout</button>
+        </div>
+    </header>
+
+    <main class="container">
+        <h1 id="welcome-message"></h1>
+
+        <div class="grid">
+            <!-- Colonna sinistra: Upload -->
+            <section class="col-left">
+                <div class="card">
+                    <div class="card-title">Carica documento</div>
+                    <form id="upload-form" class="space-y">
+                        <div class="space-y-xxs">
+                            <label for="doc-type" class="label">Tipo di documento</label>
+                            <select id="doc-type" class="select">
+                                <option value="erasmus_call">Bando Erasmus</option>
+                                <option value="destinazioni">Destinazioni</option>
+                                <option value="corsi_erasmus">Corsi Erasmus (esami)</option>
+                            </select>
+                        </div>
+                        <div class="space-y-xxs">
+                            <label for="academic-year" class="label">Anno Accademico (opzionale)</label>
+                            <input type="text" id="academic-year" class="input" placeholder="Es. 2025-2026">
+                        </div>
+                        <div class="space-y-xxs">
+                            <label for="doc-file" class="label">File PDF</label>
+                            <input type="file" id="doc-file" accept="application/pdf" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full">Carica</button>
+                    </form>
+                    <div id="upload-spinner" class="spinner-backdrop" hidden style="position: absolute; border-radius: 8px;">
+                        <div class="spinner"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Colonna destra: Documenti caricati -->
+            <section class="col-right">
+                <div class="card">
+                    <div class="card-title">Documenti Caricati</div>
+                    <div id="documents-list" class="space-y">
+                        <p class="text-muted">Nessun documento trovato.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div id="error-box" class="card error" hidden></div>
+    </main>
+
+    <script defer src="/static/university.js"></script>
+</body>
+</html>

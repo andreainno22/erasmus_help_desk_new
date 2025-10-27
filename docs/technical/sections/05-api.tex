@@ -1,0 +1,27 @@
+\chapter{API}
+
+\section{Studenti}
+\subsection{GET /api/students/universities}
+Elenco università con bandi attivi.
+
+\subsection{POST /api/students/step1}
+Input: {\tt home\_university}. Output: riassunto bando + session\_id.
+
+\subsection{POST /api/students/departments}
+Input: {\tt session\_id}. Output: lista dipartimenti per l'ateneo selezionato.
+
+\subsection{POST /api/students/step2}
+Input: {\tt session\_id, department, period}. Output: array destinazioni (JSON).
+
+\subsection{POST /api/students/step3}
+Input (multipart): {\tt session\_id, destination\_university\_name, study\_plan\_file}. Output: analisi compatibilità + link PDF.
+
+\section{Università}
+\subsection{POST /api/universities/upload/erasmus-call}
+Carica PDF bando.
+
+\subsection{POST /api/universities/upload/destinazioni}
+Carica PDF destinazioni.
+
+\subsection{POST /api/universities/upload/erasmus-courses}
+Carica PDF corsi (document\_type=\texttt{corsi\_erasmus}).

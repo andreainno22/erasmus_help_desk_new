@@ -1,0 +1,32 @@
+\chapter{Database}
+
+\section{Schema logico}
+Tabelle principali:
+\begin{itemize}
+  \item \texttt{universities}: anagrafica atenei (\texttt{id}, \texttt{university\_name}, email, ...)
+  \item \texttt{uploaded\_documents}: documenti caricati (\texttt{id}, \texttt{university\_id}, \texttt{document\_type}, \texttt{file\_path}, \texttt{stored\_filename}, ...)
+\end{itemize}
+
+\section{Tipi di documento}
+\begin{itemize}
+  \item \texttt{erasmus\_call}
+  \item \texttt{destinazioni}
+  \item \texttt{corsi\_erasmus}
+\end{itemize}
+
+\section{Esempio di query}
+Ricerca corsi per università di destinazione:
+\begin{lstlisting}[style=code]
+SELECT d.*
+FROM uploaded_documents d
+JOIN universities u ON d.university_id = u.id
+WHERE d.document_type = 'corsi_erasmus'
+  AND d.is_active = 1
+  AND (
+    LOWER(u.university_name) = LOWER(?)
+    OR LOWER(u.university_name) LIKE LOWER(?)
+    OR LOWER(?) LIKE '%' || LOWER(u.university_name) || '%'
+  )
+ORDER BY d.upload_date DESC
+LIMIT 1;
+\end{lstlisting}

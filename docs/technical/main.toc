@@ -1,0 +1,50 @@
+\babel@toc {italian}{}\relax 
+\babel@toc {italian}{}\relax 
+\contentsline {chapter}{\numberline {1}Architettura}{3}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Panoramica}{3}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Flussi principali}{3}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}Step 1: Bando}{3}{subsection.1.2.1}%
+\contentsline {subsection}{\numberline {1.2.2}Step 2: Destinazioni}{3}{subsection.1.2.2}%
+\contentsline {subsection}{\numberline {1.2.3}Step 3: Esami}{3}{subsection.1.2.3}%
+\contentsline {chapter}{\numberline {2}Setup e Configurazione}{4}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Prerequisiti}{4}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Variabili d'ambiente}{4}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Dipendenze principali}{4}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Avvio in sviluppo}{4}{section.2.4}%
+\contentsline {chapter}{\numberline {3}Database}{5}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Schema logico}{5}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Tipi di documento}{5}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Esempio di query}{5}{section.3.3}%
+\contentsline {chapter}{\numberline {4}Servizi applicativi}{6}{chapter.4}%
+\contentsline {section}{\numberline {4.1}File \texttt {app/services/rag\_service.py}}{6}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Gestione errori}{6}{section.4.2}%
+\contentsline {chapter}{\numberline {5}API}{7}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Studenti}{7}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}GET /api/students/universities}{7}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}POST /api/students/step1}{7}{subsection.5.1.2}%
+\contentsline {subsection}{\numberline {5.1.3}POST /api/students/departments}{7}{subsection.5.1.3}%
+\contentsline {subsection}{\numberline {5.1.4}POST /api/students/step2}{7}{subsection.5.1.4}%
+\contentsline {subsection}{\numberline {5.1.5}POST /api/students/step3}{7}{subsection.5.1.5}%
+\contentsline {section}{\numberline {5.2}Università}{7}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}POST /api/universities/upload/erasmus-call}{7}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}POST /api/universities/upload/destinazioni}{7}{subsection.5.2.2}%
+\contentsline {subsection}{\numberline {5.2.3}POST /api/universities/upload/erasmus-courses}{7}{subsection.5.2.3}%
+\contentsline {chapter}{\numberline {6}Integrazione LLM}{8}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Google Generative AI}{8}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Prompt}{8}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Step 2}{8}{subsection.6.2.1}%
+\contentsline {subsection}{\numberline {6.2.2}Step 3}{8}{subsection.6.2.2}%
+\contentsline {section}{\numberline {6.3}Parsing output}{8}{section.6.3}%
+\contentsline {chapter}{\numberline {7}Testing}{9}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Unit test suggeriti}{9}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Integrazione}{9}{section.7.2}%
+\contentsline {chapter}{\numberline {8}Deployment}{10}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Sviluppo}{10}{section.8.1}%
+\contentsline {section}{\numberline {8.2}Porta 8000}{10}{section.8.2}%
+\contentsline {chapter}{\numberline {9}Sicurezza}{11}{chapter.9}%
+\contentsline {section}{\numberline {9.1}Gestione segreti}{11}{section.9.1}%
+\contentsline {section}{\numberline {9.2}Upload PDF}{11}{section.9.2}%
+\contentsline {chapter}{\numberline {10}Troubleshooting}{12}{chapter.10}%
+\contentsline {section}{\numberline {10.1}Step 2: Dipartimento non trovato}{12}{section.10.1}%
+\contentsline {section}{\numberline {10.2}Step 3: Nessun file esami trovato}{12}{section.10.2}%
+\contentsline {section}{\numberline {10.3}Porta 8000 occupata}{12}{section.10.3}%
