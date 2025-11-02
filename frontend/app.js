@@ -180,10 +180,27 @@ function renderBando() {
     return;
   }
   bandoBox.className = "";
+  // Prova ad estrarre il link al PDF del bando dal summary HTML
+  const summaryHtml = state.bando.summary || "";
+  let callHref = null;
+  try {
+    const m = summaryHtml.match(/href=\"([^\"]*\/api\/students\/files\/calls\/[^\"]+)\"/i);
+    if (m && m[1]) callHref = m[1];
+  } catch {}
+
+  const base = state.apiBase.replace('/api/students', '');
+  const callUrlAbs = callHref ? `${base}${callHref}` : null;
+
   bandoBox.innerHTML = `
     <div class="space-y-xxs">
       <div class="label">✅ Bando trovato!</div>
-      <p style="margin-top:8px">${state.bando.summary || "Nessun riassunto disponibile."}</p>
+      <div style="margin-top:8px">${summaryHtml || "Nessun riassunto disponibile."}</div>
+      ${callUrlAbs ? `
+        <div style="margin-top:10px">
+          <a href="${callUrlAbs}" target="_blank" rel="noreferrer" class="btn" style="text-decoration:none">
+            📄 Apri bando (PDF)
+          </a>
+        </div>` : ''}
       ${state.useMock ? `<div class="text-muted" style="margin-top:8px; font-size:12px">Session ID: ${state.sessionId}</div>` : ''}
     </div>
   `;

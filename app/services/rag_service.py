@@ -277,11 +277,18 @@ async def get_call_summary(university_name: str) -> dict:
         model = genai.GenerativeModel("gemini-2.0-flash")
         response = await model.generate_content_async(template)
         summary_text = response.text
-        
+
+        # Costruisci un link pubblico al PDF del bando per gli studenti
+        call_pdf_url = f"/api/students/files/calls/{target_filename}"
+
         # Converti il Markdown in HTML per una corretta renderizzazione nel frontend
         summary_html = markdown_to_html(summary_text)
 
-        return {"has_program": True, "summary": summary_html}
+        # Aggiungi SEMPRE il link al sito/bando (PDF)
+        link_html = f'<p><strong>Link al bando:</strong> <a href="{call_pdf_url}" target="_blank" rel="noopener">apri il PDF ufficiale</a></p>'
+        summary_with_link = summary_html + link_html
+
+        return {"has_program": True, "summary": summary_with_link}
         
     except Exception as e:
         print(f"Errore in get_call_summary: {e}")
@@ -753,7 +760,7 @@ async def analyze_exams_compatibility(destination_university_name: str, student_
             print(f"✅ Analisi completata: {len(analysis_result.get('matched_exams', []))} corrispondenze, score: {analysis_result.get('compatibility_score', 0)}")
             
             # Aggiungi le informazioni del PDF al risultato
-            analysis_result["exams_pdf_url"] = f"/api/student/files/exams/{target_filename}"
+            analysis_result["exams_pdf_url"] = f"/api/students/files/exams/{target_filename}"
             analysis_result["exams_pdf_filename"] = target_filename
             
             return analysis_result
@@ -766,7 +773,7 @@ async def analyze_exams_compatibility(destination_university_name: str, student_
                 "suggested_exams": [],
                 "compatibility_score": 0.0,
                 "analysis_summary": f"Errore nell'analisi automatica. Si prega di consultare manualmente il PDF dei corsi disponibili.",
-                "exams_pdf_url": f"/api/student/files/exams/{target_filename}",
+                "exams_pdf_url": f"/api/students/files/exams/{target_filename}",
                 "exams_pdf_filename": target_filename
             }
             

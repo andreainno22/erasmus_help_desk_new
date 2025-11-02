@@ -202,3 +202,48 @@ async def download_exam_pdf(filename: str):
     except Exception as e:
         print(f"Errore nel download del PDF: {e}")
         raise HTTPException(status_code=500, detail="Errore nel download del file")
+
+
+@router.get("/files/calls/{filename}")
+async def download_call_pdf(filename: str):
+    """
+    Serve i file PDF dei bandi Erasmus caricati dalle università.
+    Endpoint pubblico per permettere agli studenti di aprire/scaricare il bando.
+    """
+    try:
+        from ...core.database import db_manager
+        
+        conn = db_manager.get_connection()
+        cursor = conn.cursor()
+        cursor.execute('''
+            SELECT file_path, original_filename 
+            FROM uploaded_documents 
+            WHERE stored_filename = ? 
+              AND document_type = 'erasmus_call' 
+              AND is_active = 1
+        ''', (filename,))
+        doc = cursor.fetchone()
+        conn.close()
+        
+        if not doc:
+            raise HTTPException(status_code=404, detail="File non trovato")
+        
+        file_path = doc['file_path']
+        original_filename = doc['original_filename']
+        
+        if not os.path.exists(file_path):
+            raise HTTPException(status_code=404, detail="File fisico non trovato")
+        
+        if not filename.lower().endswith('.pdf'):
+            raise HTTPException(status_code=400, detail="Il file richiesto non è un PDF valido")
+        
+        return FileResponse(
+            path=file_path,
+            filename=original_filename,
+            media_type="application/pdf"
+        )
+    except HTTPException:
+        raise
+    except Exception as e:
+        print(f"Errore nel download del bando: {e}")
+        raise HTTPException(status_code=500, detail="Errore nel download del file")
